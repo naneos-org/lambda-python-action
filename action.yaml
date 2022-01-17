@@ -1,0 +1,30 @@
+
+name: AWS Lambda python deploy
+author: Den Zalman
+description: Deploy python 3.8 code to AWS Lambda with separate dependencies layer
+inputs:
+  lambda_region:
+    description: 'Lambda AWS Region'
+    required: false
+    default: 'us-east-1'
+  requirements_txt:
+    description: Requirements file name
+    required: false
+    default: 'requirements.txt'
+  lambda_layer_arn:
+    description: Lambda layer's ARN for dependencies
+    required: false
+  lambda_function_name:
+    description: Lambda function name
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.requirements_txt }}
+    - ${{ inputs.lambda_layer_arn }}
+    - ${{ inputs.lambda_function_name }}
+    - ${{ inputs.lambda_region }}
+branding:
+  icon: 'upload-cloud'
+  color: 'orange'
