@@ -36,7 +36,7 @@ aws configure set default.region "${INPUT_LAMBDA_REGION}" > /dev/null 2>&1
 echo "OK"
 
 echo "Deploying lambda main code..."
-zip -r lambda.zip . -x \*.git\* > /dev/null 2>&1
+zip -r lambda.zip ./${INPUT_SOURCES_DIR} -x \*.git\* > /dev/null 2>&1
 aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --zip-file fileb://lambda.zip > /dev/null 2>&1
 echo "OK"
 
