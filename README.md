@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AWS Lambda deploy action for Python code
 
 [![GitHubActions](https://img.shields.io/badge/listed%20on-GitHubActions-blue.svg)](https://github-actions.netlify.com/py-lambda)
@@ -77,3 +78,6 @@ Minimal AWS credentials policy needed for the action credentials:
 ```
 
 
+=======
+# lambda-python-action
+>>>>>>> 1b4586c817e21d82f4b61b866b0754efcf2791b7
