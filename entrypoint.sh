@@ -28,6 +28,7 @@ deploy_lambda_dependencies () {
 
 ############## Git config
 git remote set-url origin "https://${INPUT_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+git config --global --add safe.directory /github/workspace
 CHANGED_FILES=()
 
 ############## Main part
