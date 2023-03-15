@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Fix the unsafe repo error which was introduced by the CVE-2022-24765 git patches
+git config --global --add safe.directory /github/workspace
+
 ############## Definitions part
 deploy_lambda_dependencies () {
 
@@ -28,7 +31,6 @@ deploy_lambda_dependencies () {
 
 ############## Git config
 git remote set-url origin "https://${INPUT_TOKEN}@github.com/${GITHUB_REPOSITORY}"
-git config --global --add safe.directory /github/workspace
 CHANGED_FILES=()
 
 ############## Main part
